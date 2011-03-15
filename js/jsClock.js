@@ -12,7 +12,6 @@ $(document).ready(function(){
         
         // Change the background color
         $('html').css('background-color', '#' + color);
-        // console.log(color);
         
     }, 100);
 
@@ -48,6 +47,8 @@ function getColor() {
     var minutes = Math.round(currentTime.getMinutes() * 4.32);
     var seconds = Math.round(currentTime.getSeconds() * 4.32);
     
+    console.log(minutes);
+    
     // Convert decimal to hex
     var r = hours.toString(16);
     var g = minutes.toString(16);
@@ -55,6 +56,9 @@ function getColor() {
 
     // Construct a string of the current time
     var hex = r + g + b;
+    
+    
+    console.log(r + '/' + g + '/' + b);
     
     // Return the color string
     return hex;

@@ -3,26 +3,35 @@
 /* -------------------------------------------------------------------- */
 
 html {
-    background-image: url(../images/bg.png);
+    /* background-image: url(../images/bg.png); */
     font-size: 100%;
     height: 100%;
     overflow: hidden;
 }
 
 body {
-    color: #FFF;
+    color: #EEE;
     font-family: Arial, Helvetica, sans-serif;
     height: 100%;
 }
 
+#background {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+
 
 a {
-    color: #FFF;
+    color: #EEE;
     text-decoration: underline;
 }
 
 a:hover {
-    color: #FFF;
+    color: #EEE;
     text-decoration: underline;
 }
 
@@ -40,19 +49,25 @@ a:hover {
 
 #borderBox {
     height: 100%;
-    border: 1px solid #FFF;
+    border: 1px solid #EEE;
     position: relative;
 }
 
-#clockWrapper {
+#clock {
+    font-family: 'Droid Sans Mono', monospace;
+    font-size: 7.5em;
+    margin-top: -70px;
     position: absolute;
     text-align: center;
+    text-shadow: 1px 1px 1px #ACACAC;
     top: 50%;
+    width: 100%;
 }
 
-#clock {
-    font-family: 'Droid Sans Mono', Arial, Helvetica, sans-serif;
-    font-size: 7.5em;
-    margin-top: -50%;
-    text-shadow: 1px 1px 3px #333;
+#credit {
+    bottom: 10px;
+    font-size: .75em;
+    letter-spacing: .25px;
+    position: absolute;
+    right: 10px;
 }
