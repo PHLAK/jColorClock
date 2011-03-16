@@ -47,12 +47,15 @@ function getColor() {
     var minutes = Math.round(currentTime.getMinutes() * 4.32);
     var seconds = Math.round(currentTime.getSeconds() * 4.32);
     
-    console.log(minutes);
-    
     // Convert decimal to hex
     var r = hours.toString(16);
     var g = minutes.toString(16);
     var b = seconds.toString(16);
+    
+    // Fix string lengths if needed
+    if (r.length < 2) { r = '0' + r; }
+    if (g.length < 2) { g = '0' + g; }
+    if (b.length < 2) { b = '0' + b; }
 
     // Construct a string of the current time
     var hex = r + g + b;

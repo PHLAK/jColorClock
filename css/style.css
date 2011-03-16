@@ -59,7 +59,7 @@ a:hover {
     margin-top: -70px;
     position: absolute;
     text-align: center;
-    text-shadow: 1px 1px 1px #666;
+    text-shadow: 1px 1px 0px #666;
     top: 50%;
     width: 100%;
 }
@@ -70,4 +70,5 @@ a:hover {
     letter-spacing: .25px;
     position: absolute;
     right: 10px;
+    text-shadow: 1px 1px 0px #666;
 }
