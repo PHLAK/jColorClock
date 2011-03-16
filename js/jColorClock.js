@@ -5,7 +5,13 @@ $(document).ready(function(){
         
         // Set the variables
         var time = getTime();
-        var color = getColor();
+        
+        var hash = window.location.hash;
+        if (hash == '#continuous') {
+            var color = getColorContinuous();
+        } else {
+            var color = getColor();
+        }
         
         // Update the time
         $('#clock').text(time);
@@ -60,6 +66,30 @@ function getColor() {
     // Construct a string of the current time
     var hex = r + g + b;
     
+    // Return the color string
+    return hex;
+}
+
+function getColorContinuous() {
+    // Instantiate the date object
+    var currentTime = new Date();
+    
+    // Set the hours, minutes and seconds to variables
+    var hours   = currentTime.getHours();
+    var minutes = currentTime.getMinutes();
+    var seconds = currentTime.getSeconds();
+
+    var hex = ((hours * 3600) + (minutes * 60) + seconds) * 193.97;
+    
+    // Convert decimal to hex
+    var hex = Math.round(hex);
+    var hex = hex.toString(16);
+    console.log(hex);
+    
+    while (hex.length < 6) {
+        var hex = '0' + hex;        
+    }
+
     // Return the color string
     return hex;
 }
