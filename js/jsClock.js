@@ -43,9 +43,9 @@ function getColor() {
     var currentTime = new Date();
     
     // Set the hours, minutes and seconds to variables
-    var hours   = Math.round(currentTime.getHours() * 11.09);
-    var minutes = Math.round(currentTime.getMinutes() * 4.32);
-    var seconds = Math.round(currentTime.getSeconds() * 4.32);
+    var hours   = Math.round(currentTime.getHours() * (255 / 23));
+    var minutes = Math.round(currentTime.getMinutes() * (255 / 59));
+    var seconds = Math.round(currentTime.getSeconds() * (255 / 59));
     
     // Convert decimal to hex
     var r = hours.toString(16);
@@ -59,9 +59,6 @@ function getColor() {
 
     // Construct a string of the current time
     var hex = r + g + b;
-    
-    
-    console.log(r + '/' + g + '/' + b);
     
     // Return the color string
     return hex;
