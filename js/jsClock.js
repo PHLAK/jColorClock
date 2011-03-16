@@ -11,9 +11,9 @@ $(document).ready(function(){
         $('#clock').text(time);
         
         // Change the background color
-        $('html').css('background-color', '#' + color);
+	$('body').animate({ backgroundColor: '#' + color }, 500);
         
-    }, 100);
+    }, 1000);
 
 });
 
