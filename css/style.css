@@ -54,7 +54,7 @@ a:hover {
 
 #clock {
     font-family: 'Droid Sans Mono', monospace;
-    font-size: 8em;
+    font-size: 9em;
     height: 140px;
     margin-top: -70px;
     position: absolute;
@@ -70,5 +70,4 @@ a:hover {
     font-size: .75em;
     position: absolute;
     right: 10px;
-    text-shadow: 1px 1px 0 #333;
 }
