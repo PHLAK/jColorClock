@@ -84,7 +84,6 @@ function getColorContinuous() {
     // Convert decimal to hex
     var hex = Math.round(hex);
     var hex = hex.toString(16);
-    console.log(hex);
     
     while (hex.length < 6) {
         var hex = '0' + hex;        
