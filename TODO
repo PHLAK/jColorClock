@@ -1,0 +1,4 @@
+- Fade between colors (at least the major changes)
+- Add description text
+- Make radial gradient an SVG
+- Possibly reduce polling to once per second
