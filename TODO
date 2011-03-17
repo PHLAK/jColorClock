@@ -1,4 +1,4 @@
-- Add description text
-- Make radial gradient an SVG
-- Possibly reduce polling to once per second
-- Additonal mode using #HMSHMS
+- Add an option to change modes
+- Add #HMSHMS mode
+- Add a way to view the color hex instead of the clock
+- Add change text size option
