@@ -57,9 +57,10 @@ a:hover {
     font-size: 9em;
     height: 140px;
     margin-top: -70px;
+    opacity: .8;
     position: absolute;
     text-align: center;
-    text-shadow: 1px 1px 0px #666;
+    text-shadow: -1px -1px 0px #666;
     top: 50%;
     width: 100%;
 }
@@ -89,20 +90,6 @@ a:hover {
     left: 10px;
     letter-spacing: .25px;
     position: absolute;
-}
-
-#options a {
-    display: inline-block;
-}
-
-#options .fontPlus,
-#options .fontMinus {
-    background: #EEE;
-    color: #333;
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
-    width: 14px;
 }
 
 #credit {
