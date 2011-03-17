@@ -17,10 +17,20 @@ $(document).ready(function(){
         $('#clock').text(time);
         
         // Change the background color
-	$('body').animate({ backgroundColor: '#' + color }, 500);
+       $('body').animate({ backgroundColor: '#' + color }, 500);
         
     }, 1000);
-
+    
+    // Hide text on click
+    $('#options .hideText').click(function(){
+        $('#title').fadeOut();
+        $('#description').fadeOut();
+        $('#options').fadeOut();
+        $('#credit').fadeOut();
+        
+        return false;
+    });
+        
 });
 
 function getTime() {

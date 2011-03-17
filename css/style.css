@@ -64,10 +64,52 @@ a:hover {
     width: 100%;
 }
 
+#title {
+    color: #EEE;
+    font-size: .85em;
+    left: 10px;
+    letter-spacing: .25px;
+    position: absolute;
+    top: 10px;
+}
+
+#description {
+    color: #EEE;
+    font-size: .85em;
+    right: 10px;
+    letter-spacing: .25px;
+    position: absolute;
+    top: 10px;
+}
+
+#options {
+    bottom: 10px;
+    color: #EEE;
+    font-size: .75em;
+    left: 10px;
+    letter-spacing: .25px;
+    position: absolute;
+}
+
+#options a {
+    display: inline-block;
+}
+
+#options .fontPlus,
+#options .fontMinus {
+    background: #EEE;
+    color: #333;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    width: 14px;
+}
+
 #credit {
     bottom: 10px;
     color: #EEE;
     font-size: .75em;
+    letter-spacing: .25px;
     position: absolute;
     right: 10px;
 }
