@@ -1,4 +1,4 @@
 - Add an option to change modes
 - Add a way to view the color hex instead of the clock
 - Add change text size option
-- Add a README
+- Dynamically update the copyright year with JS
