@@ -5,10 +5,11 @@ $(document).ready(function(){
         
         // Set the variables
         var time = getTime();
-        
         var hash = window.location.hash;
+        
+        // Choose mode based on the hash
         if (hash == '#continuous') {
-            var color = getColorContinuous();
+            var color = getColor('continuous');
         } else {
             var color = getColor();
         }
@@ -17,7 +18,7 @@ $(document).ready(function(){
         $('#clock').text(time);
         
         // Change the background color
-       $('body').animate({ backgroundColor: '#' + color }, 500);
+        $('body').animate({ backgroundColor: '#' + color }, 500);
         
     }, 1000);
     
@@ -54,33 +55,7 @@ function getTime() {
     return time;
 }
 
-function getColor() {
-    // Instantiate the date object
-    var currentTime = new Date();
-    
-    // Set the hours, minutes and seconds to variables
-    var hours   = Math.round(currentTime.getHours() * (255 / 23));
-    var minutes = Math.round(currentTime.getMinutes() * (255 / 59));
-    var seconds = Math.round(currentTime.getSeconds() * (255 / 59));
-    
-    // Convert decimal to hex
-    var r = hours.toString(16);
-    var g = minutes.toString(16);
-    var b = seconds.toString(16);
-    
-    // Fix string lengths if needed
-    if (r.length < 2) { r = '0' + r; }
-    if (g.length < 2) { g = '0' + g; }
-    if (b.length < 2) { b = '0' + b; }
-
-    // Construct a string of the current time
-    var hex = r + g + b;
-    
-    // Return the color string
-    return hex;
-}
-
-function getColorContinuous() {
+function getColor(mode) {
     // Instantiate the date object
     var currentTime = new Date();
     
@@ -88,15 +63,37 @@ function getColorContinuous() {
     var hours   = currentTime.getHours();
     var minutes = currentTime.getMinutes();
     var seconds = currentTime.getSeconds();
-
-    var hex = ((hours * 3600) + (minutes * 60) + seconds) * 193.97;
     
-    // Convert decimal to hex
-    var hex = Math.round(hex);
-    var hex = hex.toString(16);
+    // Decide which mode to process
+    if (mode == 'continuous') {
+        var hex = ((hours * 3600) + (minutes * 60) + seconds) * 193.97;
+        
+        // Convert decimal to hex
+        var hex = Math.round(hex);
+        var hex = hex.toString(16);
+        
+        // Fill in leading 0's
+        while (hex.length < 6) {
+            var hex = '0' + hex;        
+        }
+    } else {
+        // Set the hours, minutes and seconds to variables
+        var r = Math.round(hours * (255 / 23));
+        var g = Math.round(minutes * (255 / 59));
+        var b = Math.round(seconds * (255 / 59));
+        
+        // Convert decimal to hex
+        var r = r.toString(16);
+        var g = g.toString(16);
+        var b = b.toString(16);
+        
+        // Fix string lengths if needed
+        if (r.length < 2) { r = '0' + r; }
+        if (g.length < 2) { g = '0' + g; }
+        if (b.length < 2) { b = '0' + b; }
     
-    while (hex.length < 6) {
-        var hex = '0' + hex;        
+        // Construct the hex string
+        var hex = r + g + b;
     }
 
     // Return the color string
