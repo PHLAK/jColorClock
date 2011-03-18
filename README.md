@@ -1,13 +1,7 @@
 jColorClock - The color changing clock
 ======================================
 
-Created by, [Chris Kankiewicz](http://www.chriskankiewicz.com)
-
----
-
 A JavaScript clone of [The Colour Clock](http://thecolourclock.co.uk).
-
----
 
 **Copyright (c) 2011 Chris Kankewicz <Chris@ChrisKankiewicz.com>**
 
