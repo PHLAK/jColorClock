@@ -1,9 +1,15 @@
-jColorClock
-===========
+jColorClock - The color changing clock
+======================================
 
-A color changing clock written in JavaScript.
+Created by, [Chris Kankiewicz](http://www.chriskankiewicz.com)
 
-Copyright (c) 2011 Chris Kankewicz <Chris@ChrisKankiewicz.com>
+---
+
+A JavaScript clone of [The Colour Clock](http://thecolourclock.co.uk).
+
+---
+
+**Copyright (c) 2011 Chris Kankewicz <Chris@ChrisKankiewicz.com>**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
