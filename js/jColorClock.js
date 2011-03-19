@@ -15,10 +15,13 @@ $(document).ready(function(){
         }
         
         // Update the time
-        $('#clock').text(time);
+        $('#clock .text').text(time);
         
         // Change the background color
         $('body').animate({ backgroundColor: '#' + color }, 500);
+        
+        // Resize clock font
+        clockScale();
         
     }, 1000);
     
@@ -31,7 +34,12 @@ $(document).ready(function(){
         
         return false;
     });
-        
+    
+    // Resize font on window resize
+    $(window).resize(function(){
+        clockScale();
+    });
+
 });
 
 function getTime() {
@@ -98,4 +106,26 @@ function getColor(mode) {
 
     // Return the color string
     return hex;
+}
+
+function clockScale() {
+    // Set some variables
+    var scaleSource = $('body').width();
+    var scaleFactor = .12;
+    var maxScale = 150;
+    var minScale = 50;
+
+    // Multiply the width of the body by the scaling factor
+    var fontSize = scaleSource * scaleFactor; 
+
+    //Enforce the minimum and maximums
+    if (fontSize > maxScale) fontSize = maxScale;
+    if (fontSize < minScale) fontSize = minScale; 
+
+    // Set the new font size
+    $('#clock .text').css('font-size', fontSize + '%');
+    
+    // Set the new top margin
+    var margin = $('#clock').height() / 2;
+    $('#clock').css('margin-top', '-' + margin + 'px');
 }
