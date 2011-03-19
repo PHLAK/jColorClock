@@ -3,15 +3,18 @@ $(document).ready(function(){
     // Set interval for ever 0.1 seconds
     setInterval(function() {
         
+        // Instantiate the date object
+        var date = new Date();
+        
         // Set the variables
-        var time = getTime();
+        var time = getTime(date);
         var hash = window.location.hash;
         
         // Choose mode based on the hash
         if (hash == '#continuous') {
-            var color = getColor('continuous');
+            var color = getColor(date, 'continuous');
         } else {
-            var color = getColor();
+            var color = getColor(date);
         }
         
         // Update the time
@@ -24,6 +27,10 @@ $(document).ready(function(){
         clockScale();
         
     }, 1000);
+    
+    // Set the copyright date
+    var date = new Date();
+    $('#year').text(date.getFullYear());
     
     // Hide text on click
     $('#options .hideText').click(function(){
@@ -42,9 +49,9 @@ $(document).ready(function(){
 
 });
 
-function getTime(twelveHour) {
-    // Instantiate the date object
-    var currentTime = new Date();
+function getTime(date, twelveHour) {
+    // Set the date variable
+    var currentTime = date;
     
     // Set the hours, minutes and seconds to variables
     var hours   = currentTime.getHours();
@@ -67,9 +74,9 @@ function getTime(twelveHour) {
     return time;
 }
 
-function getColor(mode) {
+function getColor(date, mode) {
     // Instantiate the date object
-    var currentTime = new Date();
+    var currentTime = date;
     
     // Set the hours, minutes and seconds to variables
     var hours   = currentTime.getHours();

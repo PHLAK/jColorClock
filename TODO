@@ -1,5 +1,3 @@
 - Add an option to change modes
 - Add a way to view the color hex instead of the clock
 - Add change text size option
-- Dynamically update the copyright year with JS
-- Add a 12 hour clock mode
