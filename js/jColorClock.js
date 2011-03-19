@@ -42,7 +42,7 @@ $(document).ready(function(){
 
 });
 
-function getTime() {
+function getTime(twelveHour) {
     // Instantiate the date object
     var currentTime = new Date();
     
@@ -50,6 +50,10 @@ function getTime() {
     var hours   = currentTime.getHours();
     var minutes = currentTime.getMinutes();
     var seconds = currentTime.getSeconds();
+        
+    if (twelveHour) {
+        hours = hours % 12;
+    }
     
     // Fix variables when < 10
     if (hours < 10) { hours = "0" + hours; }
