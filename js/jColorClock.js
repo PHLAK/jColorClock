@@ -1,17 +1,26 @@
 $(document).ready(function(){
     
-    // Set interval for ever 0.1 seconds
+    // Set 24 hour time to true by default
+    var twelveHour = false;
+        
+    // Set interval for every 0.1 seconds
     setInterval(function() {
+        
+        // Set color mode based on URL hash
+        if (window.location.hash == '#continuous') {
+            var continuous = true;
+        } else {
+            var continuous = false;
+        }
         
         // Instantiate the date object
         var date = new Date();
         
-        // Set the variables
-        var time = getTime(date);
-        var hash = window.location.hash;
+        // Get the time
+        var time = getTime(date, twelveHour);
         
         // Choose mode based on the hash
-        if (hash == '#continuous') {
+        if (continuous == true) {
             var color = getColor(date, 'continuous');
         } else {
             var color = getColor(date);
@@ -32,8 +41,30 @@ $(document).ready(function(){
     var date = new Date();
     $('#year').text(date.getFullYear());
     
+    // Set the color mode on click
+    $('#colorMode').click(function() {
+        if (window.location.hash == '#continuous') {
+            window.location.hash = '#default';
+        } else {
+            window.location.hash = '#continuous';
+        }
+        
+        return false;
+    });
+    
+    // Set the clock mode on click
+    $('#clockMode').click(function() {
+        if (twelveHour == true) {
+            twelveHour = false;
+        } else {
+            twelveHour = true;
+        }
+        
+        console.log(twelveHour);
+    });
+    
     // Hide text on click
-    $('#options .hideText').click(function(){
+    $('#hideText').click(function(){
         $('#title').fadeOut();
         $('#description').fadeOut();
         $('#options').fadeOut();
