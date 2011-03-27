@@ -39,6 +39,7 @@ a:hover {
 
 
 #pageWrap {
+    box-sizing: border-box;
     height: 100%;
     padding: 10px;
     -moz-box-sizing: border-box;
