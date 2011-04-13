@@ -90,7 +90,9 @@ function getTime(date, twelveHour) {
     var seconds = currentTime.getSeconds();
         
     if (twelveHour) {
-        hours = hours % 12;
+        if (hours > 12) {
+            hours = hours - 12;
+        }
     }
     
     // Fix variables when < 10
