@@ -59,8 +59,6 @@ $(document).ready(function(){
         } else {
             twelveHour = true;
         }
-        
-        console.log(twelveHour);
     });
     
     // Hide text on click
