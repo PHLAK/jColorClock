@@ -2,8 +2,8 @@ $(document).ready(function(){
     
     // Set 24 hour time to true by default
     var twelveHour = false;
-        
-    // Set interval for every 0.1 seconds
+    
+    // Set interval for every 1 second
     setInterval(function() {
         
         // Set color mode based on URL hash
@@ -14,7 +14,7 @@ $(document).ready(function(){
         }
         
         // Instantiate the date object
-        var date = new Date();
+        date = new Date();
         
         // Get the time
         var time = getTime(date, twelveHour);
@@ -34,6 +34,10 @@ $(document).ready(function(){
         
         // Resize clock font
         clockScale();
+        
+        // Unset the date variable to conserve memory
+        // (Not sure if this actually works)
+        delete date;
         
     }, 1000);
     
