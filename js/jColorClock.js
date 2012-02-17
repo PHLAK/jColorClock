@@ -219,7 +219,7 @@ function clockScale() {
     $('#clock .text').css('font-size', fontSize + '%');
     
     // Set the new top margin
-    var topMargin = $('#clock').height() / 2;
+    var topMargin = $('#clock').height() / 2 + $('.modeButtonWrapper').height();
     $('#clock').css('margin-top', '-' + topMargin + 'px');
     
     // Set the new left margin

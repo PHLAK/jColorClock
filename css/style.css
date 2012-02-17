@@ -57,12 +57,19 @@ a:hover {
     font-family: 'Droid Sans Mono', monospace;
     font-size: 10em;
     left: 50%;
-    letter-spacing: -.05em;
-    opacity: .8;
     position: absolute;
     text-align: center;
-    text-shadow: -1px -1px 0px #666;
     top: 50%;
+}
+
+#clock .text {
+    letter-spacing: -.05em;
+    opacity: .8;
+    text-shadow: -1px -1px 0px #666;
+}
+
+.modeButtonWrapper {
+    margin-top: -18px;
 }
 
 .modeButton {
