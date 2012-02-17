@@ -3,7 +3,7 @@ jColorClock - The color changing clock
 
 A JavaScript clone of [The Colour Clock](http://thecolourclock.co.uk).
 
-**Copyright (c) 2011 Chris Kankewicz <Chris@ChrisKankiewicz.com>**
+**Copyright (c) 2012 Chris Kankewicz <Chris@ChrisKankiewicz.com>**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
