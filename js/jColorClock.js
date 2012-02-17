@@ -1,42 +1,44 @@
 $(document).ready(function(){
     
-    // Set 24 hour time to true by default
+    // Instantiate the date object
+    date = new Date();
+    
+    // Set some variables
     var twelveHour = false;
+    var clockMode  = 'time';
+    var color      = getHex(date);
+    var time       = getTime(date, twelveHour);
+    
+    // Set the background color
+    setBackgroundColor(color, false);
+        
+    // Update the time and scale the clock
+    $('#clock .text').text(time);
+    clockScale();
     
     // Set interval for every 1 second
     setInterval(function() {
         
-        // Set color mode based on URL hash
-        if (window.location.hash == '#continuous') {
-            var continuous = true;
-        } else {
-            var continuous = false;
-        }
-        
         // Instantiate the date object
         date = new Date();
         
-        // Get the time
-        var time = getTime(date, twelveHour);
+        // Set color variable
+        var color = getHex(date);
         
-        // Choose mode based on the hash
-        if (continuous == true) {
-            var color = getColor(date, 'continuous');
-        } else {
-            var color = getColor(date);
+        // Set the time variable
+        if (clockMode == 'time') {
+            var time = getTime(date, twelveHour);
+        } else if (clockMode == 'hex') {
+            var time = getHex(date, ':');
         }
         
         // Update the time
         $('#clock .text').text(time);
         
-        // Change the background color
-        $('body').animate({ backgroundColor: '#' + color }, 500);
+        // Fade the background color
+        setBackgroundColor(color, true);
         
-        // Resize clock font
-        clockScale();
-        
-        // Unset the date variable to conserve memory
-        // (Not sure if this actually works)
+        // Destroy the date object to conserve memory
         delete date;
         
     }, 1000);
@@ -45,35 +47,69 @@ $(document).ready(function(){
     var date = new Date();
     $('#year').text(date.getFullYear());
     
-    // Set the color mode on click
-    $('#colorMode').click(function() {
-        if (window.location.hash == '#continuous') {
-            window.location.hash = '#default';
-        } else {
-            window.location.hash = '#continuous';
+    // Set the clock mode
+    $('.modeButton').click(function() {
+        
+        // Toggle button fade ammounts
+        $(this).fadeTo(500, .8);
+        $(this).siblings().fadeTo(500, .4);
+        
+        // Instantiate the date object
+        date = new Date();
+        
+        if ($(this).hasClass('time')) {
+            
+            // Set the clock mode
+            clockMode = 'time';
+            
+            // Set the time variable        
+            var time  = getTime(date, twelveHour);
+            
+        } else if ($(this).hasClass('hex')) {
+            
+            // Set the clock mode
+            clockMode = 'hex';
+            
+            // Set the time variable        
+            var time = getHex(date, ':');
+            
         }
         
-        return false;
+        // Update the time
+        $('#clock .text').text(time);
+        
     });
     
-    // Set the clock mode on click
+    // Set the hour mode on click
     $('#clockMode').click(function() {
+
+        // Toggle the hour mode
         if (twelveHour == true) {
+            // Set twenty-four hour mode
             twelveHour = false;
+            $(this).children('.text').text('24H');
         } else {
+            // Set twelve hour mode
             twelveHour = true;
+            $(this).children('.text').text('12H');
         }
         
+        // Instantiate the date object
+        date = new Date();
+        
+        // Set some variables        
+        var time = getTime(date, twelveHour);
+        
+        // Update the time
+        $('#clock .text').text(time);
+        
         return false;
+        
     });
     
     // Hide text on click
     $('#hideText').click(function(){
-        $('#title').fadeOut();
-        $('#description').fadeOut();
-        $('#options').fadeOut();
-        $('#credit').fadeOut();
-        
+        $('.hideMe').fadeOut();
         return false;
     });
     
@@ -85,6 +121,7 @@ $(document).ready(function(){
 });
 
 function getTime(date, twelveHour) {
+    
     // Set the date variable
     var currentTime = date;
     
@@ -109,9 +146,16 @@ function getTime(date, twelveHour) {
     
     // Return the time string
     return time;
+    
 }
 
-function getColor(date, mode) {
+function getHex(date, separator) {
+    
+    // Set the separator to nothing by default
+    if (typeof separator == 'undefined') {
+        separator = '';
+    }
+    
     // Instantiate the date object
     var currentTime = date;
     
@@ -120,48 +164,49 @@ function getColor(date, mode) {
     var minutes = currentTime.getMinutes();
     var seconds = currentTime.getSeconds();
     
-    // Decide which mode to process
-    if (mode == 'continuous') {
-        var hex = ((hours * 3600) + (minutes * 60) + seconds) * 193.97;
-        
-        // Convert decimal to hex
-        var hex = Math.round(hex);
-        var hex = hex.toString(16);
-        
-        // Fill in leading 0's
-        while (hex.length < 6) {
-            var hex = '0' + hex;        
-        }
-    } else {
-        // Set the hours, minutes and seconds to variables
-        var r = Math.round(hours * (255 / 23));
-        var g = Math.round(minutes * (255 / 59));
-        var b = Math.round(seconds * (255 / 59));
-        
-        // Convert decimal to hex
-        var r = r.toString(16);
-        var g = g.toString(16);
-        var b = b.toString(16);
-        
-        // Fix string lengths if needed
-        if (r.length < 2) { r = '0' + r; }
-        if (g.length < 2) { g = '0' + g; }
-        if (b.length < 2) { b = '0' + b; }
+    // Set the hours, minutes and seconds to variables
+    var r = Math.round(hours * (255 / 23));
+    var g = Math.round(minutes * (255 / 59));
+    var b = Math.round(seconds * (255 / 59));
     
-        // Construct the hex string
-        var hex = r + g + b;
-    }
+    // Convert decimal to hex
+    var r = r.toString(16);
+    var g = g.toString(16);
+    var b = b.toString(16);
+    
+    // Fix string lengths if needed
+    if (r.length < 2) { r = '0' + r; }
+    if (g.length < 2) { g = '0' + g; }
+    if (b.length < 2) { b = '0' + b; }
+
+    // Construct the hex string
+    var hex = r + separator + g + separator + b;
+    
+    // Convert string to uppercase
+    var hex = hex.toUpperCase();
 
     // Return the color string
     return hex;
+    
+}
+
+function setBackgroundColor(color, fade) {
+    
+    if(fade == true) {
+        $('body').animate({ backgroundColor: '#' + color }, 500);
+    } else {
+        $('body').css('background-color', '#' + color);
+    }
+    
 }
 
 function clockScale() {
+    
     // Set some variables
     var scaleSource = $('body').width();
     var scaleFactor = .12;
-    var maxScale = 150;
-    var minScale = 50;
+    var maxScale    = 200;
+    var minScale    = 50;
 
     // Multiply the width of the body by the scaling factor
     var fontSize = scaleSource * scaleFactor; 
@@ -174,6 +219,11 @@ function clockScale() {
     $('#clock .text').css('font-size', fontSize + '%');
     
     // Set the new top margin
-    var margin = $('#clock').height() / 2;
-    $('#clock').css('margin-top', '-' + margin + 'px');
+    var topMargin = $('#clock').height() / 2;
+    $('#clock').css('margin-top', '-' + topMargin + 'px');
+    
+    // Set the new left margin
+    var leftMargin = $('#clock').width() / 2;
+    $('#clock').css('margin-left', '-' + leftMargin + 'px');
+    
 }

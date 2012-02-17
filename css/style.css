@@ -53,15 +53,44 @@ a:hover {
 }
 
 #clock {
+    display: inline-block;
     font-family: 'Droid Sans Mono', monospace;
     font-size: 10em;
+    left: 50%;
     letter-spacing: -.05em;
     opacity: .8;
     position: absolute;
     text-align: center;
     text-shadow: -1px -1px 0px #666;
     top: 50%;
-    width: 100%;
+}
+
+.modeButton {
+    background: #f7f7f7;
+    background-image: -webkit-linear-gradient(top, #ffffff 0%, #eeeeee 100%);
+    background-image: -moz-linear-gradient(top, #ffffff 0%, #eeeeee 100%);
+    background-image: -o-linear-gradient(top, #ffffff 0%, #eeeeee 100%);
+    background-image: -ms-linear-gradient(top, #ffffff 0%, #eeeeee 100%);
+    background-image: linear-gradient(top, #ffffff 0%, #eeeeee 100%);
+    font-size: 1px;
+    height: 18px;
+    opacity: .4;
+    outline: none;
+    width: 49%;
+}
+
+.modeButton.active {
+    opacity: .8;
+}
+
+.modeButton.time {
+    float: left;
+    margin-right: 1%;
+}
+
+.modeButton.hex {
+    float: right;
+    margin-left: 1%;
 }
 
 #title, #description,

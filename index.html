@@ -21,26 +21,28 @@
     
     <div id="pageWrap">
         <div id="borderBox">
-            <span id="clock">
-                <span class="text"></span>
-            </span>
+            <div id="clock">
+                <div class="text">00:00:00</div>
+                <div class="clearfix">
+                    <a href="javascript:void(0)" class="modeButton time active">&nbsp;</a>
+                    <a href="javascript:void(0)" class="modeButton hex">&nbsp;</a>
+                </div>
+            </div>
             
-            <span id="title">
+            <span id="title" class="hideMe">
                 <a href="https://github.com/PHLAK/jColorClock">jColorClock</a>
             </span>
             
-            <span id="description">
+            <span id="description" class="hideMe">
                 A JavaScript clone of <a href="http://thecolourclock.co.uk/">The Colour Clock</a>
             </span>
             
-            <span id="options">
-                <a href="#" id="colorMode">Color Mode</a> |
-                <a href="#" id="clockMode">Clock Mode</a> |
-                <a href="#" id="hideText">Hide Text</a>
-                
+            <span id="options" class="hideMe">
+                <a href="javascript:void(0)" id="clockMode">Mode: <span class="text">24H</span></a> |
+                <a href="javascript:void(0)" id="hideText">Hide Text</a>
             </span>
             
-            <span id="credit">&copy; <span id="year">2012</span> <a href="http://www.chriskankiewicz.com">Chris Kankiewicz</a></span>
+            <span id="credit" class="hideMe">&copy; <span id="year">2012</span> <a href="http://www.chriskankiewicz.com">Chris Kankiewicz</a></span>
         </div>
     </div>
     
