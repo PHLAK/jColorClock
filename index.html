@@ -1,52 +1,53 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-    <title>jColorClock</title>
-    <link rel="shortcut icon" href="images/color_wheel.png" type="image/x-icon" />
-    
-    <link rel="stylesheet" type="text/css" href="css/rebase-min.css" />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" type="text/css"  href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono:regular" />
+<html>
 
-    <script type="text/javascript" src="js/jquery-min.js"></script>
-    <script type="text/javascript" src="js/jquery-ui-min.js"></script>
-    <script type="text/javascript" src="js/jColorClock.js"></script>
-    
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
+    <head>
+        <title>jColorClock</title>
+        <link rel="shortcut icon" href="images/color_wheel.png" type="image/x-icon">
 
-<body>
-    
-    <div id="pageWrap">
-        <div id="borderBox">
-            <div id="clock">
-                <div class="text">00:00:00</div>
-                <div class="modeButtonWrapper clearfix">
-                    <a href="javascript:void(0)" class="modeButton time active">&nbsp;</a>
-                    <a href="javascript:void(0)" class="modeButton hex">&nbsp;</a>
+        <link rel="stylesheet" type="text/css" href="css/rebase-min.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css"  href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono:regular">
+
+        <script type="text/javascript" src="js/jquery-min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-min.js"></script>
+        <script type="text/javascript" src="js/jColorClock.js"></script>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    </head>
+
+    <body>
+
+        <div id="pageWrap">
+            <div id="borderBox">
+                <div id="clock">
+                    <div class="text">00:00:00</div>
+                    <div class="modeButtonWrapper clearfix">
+                        <a href="javascript:void(0)" class="modeButton time active">&nbsp;</a>
+                        <a href="javascript:void(0)" class="modeButton hex">&nbsp;</a>
+                    </div>
                 </div>
-            </div>
-            
-            <span id="title" class="hideMe">
-                <a href="https://github.com/PHLAK/jColorClock">jColorClock</a>
-            </span>
-            
-            <span id="description" class="hideMe">
-                A JavaScript clone of <a href="http://thecolourclock.co.uk/">The Colour Clock</a>
-            </span>
-            
-            <span id="options" class="hideMe">
-                <a href="javascript:void(0)" id="clockMode">Mode: <span class="text">24H</span></a> |
-                <a href="javascript:void(0)" id="hideText">Hide Text</a>
-            </span>
-            
-            <span id="credit" class="hideMe">&copy; <span id="year">0000</span> <a href="http://www.chriskankiewicz.com">Chris Kankiewicz</a></span>
-        </div>
-    </div>
-    
-    <object data="images/radial-gradient.svg" id="background" type="image/svg+xml"></object>
 
-</body>
+                <span id="title" class="hideMe">
+                    <a href="https://github.com/PHLAK/jColorClock">jColorClock</a>
+                </span>
+
+                <span id="description" class="hideMe">
+                    A JavaScript clone of <a href="http://thecolourclock.co.uk/">The Colour Clock</a>
+                </span>
+
+                <span id="options" class="hideMe">
+                    <a href="javascript:void(0)" id="clockMode">Mode: <span class="text">24H</span></a> |
+                    <a href="javascript:void(0)" id="hideText">Hide Text</a>
+                </span>
+
+                <span id="credit" class="hideMe">&copy; <span id="year">0000</span> <a href="http://www.chriskankiewicz.com">Chris Kankiewicz</a></span>
+            </div>
+        </div>
+
+        <object data="images/radial-gradient.svg" id="background" type="image/svg+xml"></object>
+
+    </body>
+
 </html>
